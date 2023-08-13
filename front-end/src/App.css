@@ -1,38 +1,158 @@
+@charset "UTF-8";
 .App {
-  text-align: center;
+    width: 100%;
+    height: 100vh;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
+  
+  .Sidebar {
+    height: 100%;
+    width: 250px;
+    background: #2d445d;
+  }
+  
+  .SidebarList {
+    height: auto;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .SidebarList .row {
+    width: 100%;
+    height: 60px;
+    /* background-color: cadetblue; */
+    /* border: 1px solid black; */
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* ホバー状態の処理 */
+  .SidebarList .row:hover {
+    cursor: pointer;
+    background-color: #3b627a;
+  }
+  
+  /* アクティブ状態の処理 */
+  .SidebarList #active {
+    background-color: #3b627a;
+  }
+  
+  .row #icon {
+    flex: 30%;
+    display: grid;
+    place-items: center;
+  }
+  
+  .row #title {
+    flex: 70%;
+  }
+  
+  .SidebarIcon {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    text-align: center;
+  }
+  
+  .SidebarIcon img {
+    width: 100px;
+  }
+  
+  .SidebarIcon p {
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+.Node{
+  display: inline-block;
+  text-decoration: none;
+  background: #87befd;
+  color: #FFF;
+  width: 200px;
+  height: 200px;
+  line-height: 120px;
+  border-radius: 50%;
+  text-align: center;
+  overflow: hidden;
+  transition: .4s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Node:hover{
+  background: #668ad8;
+}
+
+.NodeText{
+  text-align:center;
+  height:200px;
+  line-height:200px;
+  font-size: 1px;
+}
+
+.Home{
   display: flex;
-  flex-direction: column;
+}
+
+.ProcessScreen{
+  height: 1500px;
+  padding-top: 200px;
+  padding-left: 70px;
+  padding-right: 70px;
+  position: relative;
+}
+
+.NodePlace{
+  display: flex;
+  position: absolute;
+  transform: translate(10%, -7%);
+}
+
+
+
+.Node2{
+  padding-top: 260px;
+}
+
+.Node4{
+  padding-top: 260px;
+}
+
+/* ボタンのスタイル */
+.buttonRound {
+  border: 1px white solid;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100%;
+  max-width: 320px;
+  height: 64px;
+  padding: 8px 24px;
+  font-family: sans-serif;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  overflow-wrap: anywhere;
+  background-color: #375779;
+  border-radius: 30px; /* (buttonの高さ / 2) の値 */
 }
 
-.App-link {
-  color: #61dafb;
+@media (any-hover: hover) {
+  .buttonRound {
+    transition: background-color 0.2s;
+  }
+
+  .buttonRound:hover {
+    background-color: #426891;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.NewgoalButton{
+  margin-bottom: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
