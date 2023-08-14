@@ -76,7 +76,6 @@
   color: #FFF;
   width: 200px;
   height: 200px;
-  line-height: 120px;
   border-radius: 50%;
   text-align: center;
   overflow: hidden;
@@ -89,9 +88,10 @@
 
 .NodeText{
   text-align:center;
-  height:200px;
-  line-height:200px;
-  font-size: 1px;
+  padding-top: 90px;
+  height:10px;
+  line-height:15px;
+  font-size: 15px;
 }
 
 .Home{
