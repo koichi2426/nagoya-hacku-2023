@@ -1,11 +1,24 @@
-# Back-End
-OpenHack2023 nagoyaで使用するWebアプリケーションのバックエンド開発用ディレクトリ
+# README
 
-## 環境
-Docker compose環境を利用し、バージョンを合わせて開発をする
-使用フレームワークはruby on railsを利用し、apiモードで動作を想定
-DBにはsqliteを利用しローカルにデータを保存する
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-## 動作
-chat gpt api への問い合わせとjson形式でのデータのやりとりをする
-DBとの通信をし、目標の個数や目標データ、小目標の進捗度合をあらわすデータが必要
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
