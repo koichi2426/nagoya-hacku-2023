@@ -26,16 +26,30 @@ class ApiController < ApplicationController
 
     response = generate_story(config, question)
 
+    process = response["Process"]
+    array = [process["Process1"], process["Process2"], process["Process3"], process["Process4"], process["Process5"]]
+
+    mission = Mission.new
+    mission.title = response["title"]
+    mission.progress = 1
+    mission.save
+
+    array.each do |res|
+      sub = SubMission.new
+      sub.mission = mission
+      sub.content = res
+      sub.save
+    end
+
     render :json => {
-      "question": question,
-      "config": config,
-      "response": response
+      "title": response["title"],
+      "response": array,
     }
   end
 
   def generate_story(config, question)
 
-    client = OpenAI::Client.new(access_token: "API_KEY")
+    client = OpenAI::Client.new(access_token: "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")
 
     response = client.chat(
       parameters:{
@@ -46,6 +60,7 @@ class ApiController < ApplicationController
         ],
       }
     )
-    return JSON.parse(response.dig('choices', 0, 'message', 'content'))
+    json = JSON.parse(response.dig('choices', 0, 'message', 'content'))
+    return json
   end
 end
