@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_19_001011) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_21_054324) do
   create_table "missions", force: :cascade do |t|
-    t.integer "mission_id", null: false
-    t.string "mission_title", null: false
+    t.string "title", null: false
     t.integer "progress", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -21,10 +20,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_001011) do
 
   create_table "sub_missions", force: :cascade do |t|
     t.integer "mission_id", null: false
-    t.integer "submission_id", null: false
-    t.string "submission_content", null: false
+    t.string "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["mission_id"], name: "index_sub_missions_on_mission_id"
   end
 
+  add_foreign_key "sub_missions", "missions"
 end

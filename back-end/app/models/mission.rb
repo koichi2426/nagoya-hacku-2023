@@ -1,3 +1,3 @@
 class Mission < ApplicationRecord
-    self.primary_key = :mission_id
+    has_many :sub_mission
 end
