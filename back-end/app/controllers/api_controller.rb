@@ -47,6 +47,27 @@ class ApiController < ApplicationController
     }
   end
 
+  def all
+    mission = Mission.all
+    json_data = {}
+
+    # DB1から目標情報を取得します。
+    mission.each do |miso|
+      goal_key = "goal#{miso.id}"
+      json_data[goal_key] = { "title" => miso.title, "Progress" => {} }
+
+      # DB2からサブミッション情報を取得します。
+      sub = SubMission.where(mission_id: miso.id)
+      sub.each do |submi|
+        process_key = "Process#{json_data[goal_key]["Progress"].size + 1}"
+        json_data[goal_key]["Progress"][process_key] = submi.content
+      end
+    end
+
+    # 最終的なJSONデータを表示します。
+    render :json => JSON.pretty_generate(json_data)
+  end
+
   def generate_story(config, question)
 
     client = OpenAI::Client.new(access_token: "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")
