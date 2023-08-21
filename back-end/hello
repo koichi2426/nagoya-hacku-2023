@@ -1,0 +1,12 @@
+
+##DBのデータ全て取り出して1つのjosn形式のファイルに変換する
+/全データ取り出し
+
+mission = Mission.all
+
+/json形式に変更
+json_data = mission.to_json
+
+File.open(file_path, 'w') do |file|
+  file.write(json_data)
+end
