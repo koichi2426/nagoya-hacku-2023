@@ -12,11 +12,14 @@ class ApiController < ApplicationController
     ChatGPTあなたの返信は以下のJSON形式のみとします。必ず守るようにしてください。
 
     {
-      "Process1" : " ",
-      "Process2" : " ",
-      "Process3" : " ",
-      "Process4" : " ",
-      "Process5" : " ",
+      "title": " ",
+      "Process":{
+        "Process1" : " ",
+        "Process2" : " ",
+        "Process3" : " ",
+        "Process4" : " ",
+        "Process5" : " ",
+      }
     }
     CONFIG
     question = params[:question]
