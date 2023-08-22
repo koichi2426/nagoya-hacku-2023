@@ -70,7 +70,7 @@ class ApiController < ApplicationController
 
   def generate_story(config, question)
 
-    client = OpenAI::Client.new(access_token: "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")
+    client = OpenAI::Client.new(access_token: "")
 
     response = client.chat(
       parameters:{
